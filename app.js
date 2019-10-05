@@ -72,4 +72,16 @@ buttons.forEach(button => button.addEventListener("click", startTimer));
 // --------------------TIMEDATE JS ENDS   HERE------------------ //
 
 // ====================ANIMATION JS STARTS HERE================= //
+const background = document.querySelector(".background");
+const t1 = new TimelineMax();
+
+t1.fromTo(background, 2.2, { width: "0%" }, { width: "100%", ease: Power2.easeInOut })
+  .fromTo(
+    timerDisplay,
+    2.2,
+    { x: "100%" },
+    { x: "0%", ease: Power2.easeInOut },
+    "-=2.2"
+  )
+  .fromTo(buttons, 1.7, { opacity: 0, y: 200 }, { opacity: 1, y: 0 }, "-=1.5");
 // ====================ANIMATION JS ENDS   HERE================= //
