@@ -1,0 +1,121 @@
+/* SKELETON STYLES */
+html {
+  box-sizing: border-box;
+  font-size: 10px;
+  overflow: hidden;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  text-align: center;
+  font-family: "Inconsolata", monospace;
+}
+
+/* BACKGROUND STYLES */
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("./assets/images/background.jpg") no-repeat center center
+    fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  z-index: -1;
+}
+
+/* BUTTON STYLES */
+button img {
+  height: 50px;
+  width: 50px;
+  filter: invert(1);
+}
+
+.buttonTodo {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+}
+
+.buttonWeather {
+  position: absolute;
+  bottom: 5%;
+  left: 5%;
+}
+
+.buttonSettings {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+}
+
+.buttonTimedate {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+}
+
+/* TIMER STYLES */
+.timer {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.display {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.display__time-left {
+  font-weight: 100;
+  font-size: 20rem;
+  margin-top: 20%;
+  color: white;
+  text-shadow: 8px 8px 0 rgba(190, 26, 26, 0.707);
+}
+
+.display__end-time {
+  font-size: 4rem;
+  color: white;
+  text-shadow: 2px 2px 0 rgba(190, 26, 26, 0.707);
+}
+
+.timer__controls {
+  width: 100%;
+  margin-bottom: 35%;
+}
+
+.timer__button {
+  border: 0;
+  cursor: pointer;
+  color: white;
+  width: 125px;
+  font-size: 3rem;
+  text-transform: uppercase;
+  border-bottom: 3px solid rgba(0, 0, 0, 0.2);
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+  font-family: "Inconsolata", monospace;
+  background: rgba(190, 26, 26, 0.707);
+  margin: 0 2.5rem;
+  border-radius: 5%;
+  box-shadow: 2px 2px 0 rgba(255, 255, 255, 0.707);
+}
+
+.timer__button:hover,
+.timer__button:focus {
+  background: rgba(41, 6, 153, 0.707);
+  outline: 0;
+}

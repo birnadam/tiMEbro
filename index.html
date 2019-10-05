@@ -1,0 +1,81 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link href='https://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+    <title>tiMEbro</title>
+    <link
+      rel="shortcut icon"
+      href="https://cdn2.iconfinder.com/data/icons/business-office-icons/256/To-do_List-512.png"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    <!-- =======================BACKGROUND IMAGE HERE======================= -->
+    <div class="background"></div>
+
+    <!-- ===========================BUTTONS HERE============================ -->
+    <button type="button" class="buttonTodo btn">
+      <img id=todoButton src="./assets/images/todo.png"></img>
+    </button>
+    <button type="button" class="buttonWeather btn">
+      <img id=weatherButton src="./assets/images/weather.png"></img>
+    </button>
+    <button type="button" class="buttonSettings btn">
+      <img id=settingsButton src="./assets/images/settings.png"></img>
+    </button>
+    <button type="button" class="buttonTimedate btn">
+      <img id=timedateButton src="./assets/images/timedate.png"></img>
+    </button>
+
+    <!-- ============================TIMER HERE============================= -->
+    <div class="timer">
+
+      <div class="display">
+        <h1 class="display__time-left">25:00</h1>
+        <p class="display__end-time"></p>
+      </div>
+      <div class="timer__controls">
+        <button data-time="1500" class="timer__button">Start</button>
+        <button data-time="0" class="timer__button">Stop</button>
+        <button data-time="600" class="timer__button">Break</button>
+      </div>
+    </div>
+
+    <!-- =====================CONTAINERS START HERE======================= -->
+    <!-- ------------------TODO CONTAINER STARTS HERE--------------------- -->
+    <div class="todo"></div>
+    <!-- --------------------TODO CONTAINER ENDS HERE--------------------- -->
+
+    <!-- ------------------WEATHER CONTAINER STARTS HERE------------------ -->
+    <div class="weather"></div>
+    <!-- -------------------WEATHER CONTAINER ENDS HERE------------------- -->
+
+    <!-- -----------------SETTINGS CONTAINER STARTS HERE------------------ -->
+    <div class="settings"></div>
+    <!-- ------------------SETTINGS CONTAINER ENDS HERE------------------- -->
+
+    <!-- -----------------TIME/DATE CONTAINER STARTS HERE----------------- -->
+    <div class="timedate"></div>
+    <!-- ------------------TIME/DATE CONTAINER ENDS HERE------------------ -->
+
+    <!-- =======================CONTAINERS END HERE======================= -->
+    <script src="jquery-3.4.1.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+
+</html>
