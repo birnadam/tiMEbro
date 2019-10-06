@@ -1,4 +1,76 @@
+// ====================DISPLAYER JS STARTS HERE================= //
+// we'll use this array to toggle visibility on the containers
+// the buttons will toggle the boolean to true which will reveal the container
+// page display bool in order respectively: todo, settings, weather, timedate
+let pageDisplayBool = [false, false, false, false];
+
+const displayer = () => {
+  $(".todo").hide();
+  $(".settings").hide();
+  $(".weather").hide();
+  $(".timedate").hide();
+
+  if (pageDisplayBool[0]) {
+    $(".todo").show();
+  }
+  if (pageDisplayBool[1]) {
+    $(".settings").show();
+  }
+  if (pageDisplayBool[2]) {
+    $(".weather").show();
+  }
+  if (pageDisplayBool[3]) {
+    $(".timedate").show();
+  }
+};
+
+displayer();
+// ====================DISPLAYER JS ENDS   HERE================= //
+
 // =====================BUTTONS JS STARTS HERE================== //
+$(document).on("click", ".buttonTodo", function() {
+  if (pageDisplayBool[0]) {
+    pageDisplayBool[0] = false; // hides both containers if icon clicked while container is open
+  } else {
+    pageDisplayBool[0] = true; // show todo container
+  }
+  pageDisplayBool[1] = false, pageDisplayBool[2] = false, pageDisplayBool[3] = false; // hide other containers
+
+  displayer(); // toggle containers
+});
+
+$(document).on("click", ".buttonSettings", function() {
+  if (pageDisplayBool[1]) {
+    pageDisplayBool[1] = false; // hides both containers if icon clicked while container is open
+  } else {
+    pageDisplayBool[1] = true; // show settings container
+  }
+  pageDisplayBool[0] = false, pageDisplayBool[2] = false, pageDisplayBool[3] = false; // hide other containers
+
+  displayer(); // toggle containers
+});
+
+$(document).on("click", ".buttonWeather", function() {
+  if (pageDisplayBool[2]) {
+    pageDisplayBool[2] = false; // hides both containers if icon clicked while container is open
+  } else {
+    pageDisplayBool[2] = true; // show weather container
+  }
+  pageDisplayBool[1] = false, pageDisplayBool[0] = false, pageDisplayBool[3] = false; // hide other containers
+
+  displayer(); // toggle containers
+});
+
+$(document).on("click", ".buttonTimedate", function() {
+  if (pageDisplayBool[3]) {
+    pageDisplayBool[3] = false; // hides both containers if icon clicked while container is open
+  } else {
+    pageDisplayBool[3] = true; // show time/date container
+  }
+  pageDisplayBool[1] = false, pageDisplayBool[2] = false, pageDisplayBool[0] = false; // hide other containers
+
+  displayer(); // toggle containers
+});
 // =====================BUTTONS JS ENDS   HERE================== //
 
 // ======================TIMER JS STARTS HERE=================== //
@@ -60,6 +132,7 @@ buttons.forEach(button => button.addEventListener("click", startTimer));
 // ======================TIMER JS ENDS   HERE=================== //
 
 // --------------------TODO JS STARTS HERE---------------------- //
+
 // --------------------TODO JS ENDS   HERE---------------------- //
 
 // -------------------WEATHER JS STARTS HERE-------------------- //
@@ -73,9 +146,19 @@ buttons.forEach(button => button.addEventListener("click", startTimer));
 
 // ====================ANIMATION JS STARTS HERE================= //
 const background = document.querySelector(".background");
+const icon1 = document.querySelector(".buttonTodo");
+const icon2 = document.querySelector(".buttonWeather");
+const icon3 = document.querySelector(".buttonSettings");
+const icon4 = document.querySelector(".buttonTimedate");
+
 const t1 = new TimelineMax();
 
-t1.fromTo(background, 2.2, { width: "0%" }, { width: "100%", ease: Power2.easeInOut })
+t1.fromTo(
+  background,
+  2.2,
+  { width: "0%" },
+  { width: "100%", ease: Power2.easeInOut }
+)
   .fromTo(
     timerDisplay,
     2.2,
@@ -83,5 +166,9 @@ t1.fromTo(background, 2.2, { width: "0%" }, { width: "100%", ease: Power2.easeIn
     { x: "0%", ease: Power2.easeInOut },
     "-=2.2"
   )
-  .fromTo(buttons, 1.7, { opacity: 0, y: 200 }, { opacity: 1, y: 0 }, "-=1.5");
+  .fromTo(buttons, 1.7, { opacity: 0, y: 200 }, { opacity: 1, y: 0 }, "-=1.5")
+  .fromTo(icon1, 1.7, { opacity: 0, y: -200 }, { opacity: 1, y: 0 }, "-=1.2")
+  .fromTo(icon2, 1.7, { opacity: 0, y: -200 }, { opacity: 1, y: 0 }, "-=1.7")
+  .fromTo(icon3, 1.7, { opacity: 0, y: -200 }, { opacity: 1, y: 0 }, "-=1.7")
+  .fromTo(icon4, 1.7, { opacity: 0, y: -200 }, { opacity: 1, y: 0 }, "-=1.7");
 // ====================ANIMATION JS ENDS   HERE================= //
