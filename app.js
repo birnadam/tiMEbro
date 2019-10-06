@@ -235,8 +235,8 @@ class Forecast {
 
 // used for dom manipulation
 
-const cityForm = document.querySelector("form .change-location");
-const card = document.querySelector(".card");
+const cityForm = document.querySelector(".change-location");
+const card = document.querySelector(".weatherCard");
 const details = document.querySelector(".details");
 const time = document.querySelector("img.time");
 const icon = document.querySelector(".icon img");
