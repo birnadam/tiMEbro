@@ -206,3 +206,19 @@ input[type="text"]:focus {
     /* !important increases precendence over other styles */
   display: none !important;
 }
+
+/* weather styles */
+.weatherContainer {
+  background: #eeedec;
+  letter-spacing: 0.2em;
+  font-size: 0.8em;
+  max-width: 400px;
+}
+.weatherIcon {
+  position: relative;
+  top: -50px;
+  /* making it a perfect circle */
+  border-radius: 50%;
+  width: 100px;
+  margin-bottom: -50px;
+}
