@@ -82,6 +82,7 @@ button img {
 .display__time-left {
   font-weight: 100;
   margin-top: 15%;
+  font-size: 16rem;
   color: white;
   text-shadow: 8px 8px 0 rgba(190, 26, 26, 0.707);
 }
@@ -94,7 +95,6 @@ button img {
 
 .timer__controls {
   width: 100%;
-  margin-bottom: 35%;
 }
 
 .timer__button {
@@ -307,6 +307,10 @@ h3 {
   .settings, .timedate {
     right: 10%;
   }
+
+  .timer__controls {
+    margin-bottom: 75%;
+  }
 }
 
 @media only screen and (min-width: 969px) {
@@ -328,5 +332,8 @@ h3 {
   .timedate {
     top: 25%;
     right: 5%;
+  }
+  .timer__controls {
+    margin-bottom: 35%;
   }
 }
