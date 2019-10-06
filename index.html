@@ -52,14 +52,14 @@
       <div class="timer__controls">
         <button data-time="1500" class="timer__button">Start</button>
         <button data-time="0" class="timer__button">Stop</button>
-        <button data-time="600" class="timer__button">Break</button>
+        <button data-time="300" class="timer__button">Break</button>
       </div>
     </div>
 
     <!-- =====================CONTAINERS START HERE======================= -->
     <!-- ------------------TODO CONTAINER STARTS HERE--------------------- -->
-    <div class="todo"><h1>Todos</h1>
-
+    <div class="todo">
+      <h1>Todos</h1>
         <header class="text-center text-light my-4">
           <!-- <h1 class="mb-4">Todo List</h1> -->
           <form class="search">
@@ -84,14 +84,32 @@
     
         <form class="add text-center my-4">
           <!-- <label class="addTodo">Add a new todo...</label> -->
-          <input class="form-control m-auto" id="addTodo" type="text" name="add" placeholder="Add a new Todo"/>
+          <input class="form-control m-auto" id="addTodo" type="text" name="add" placeholder="Add a New Todo"/>
         </form>
-    
       </div>
     <!-- --------------------TODO CONTAINER ENDS HERE--------------------- -->
 
     <!-- -----------------SETTINGS CONTAINER STARTS HERE------------------ -->
-    <div class="settings"><h1>settings</h1></div>
+    <div class="settings">
+      <h1>Settings</h1>
+      <form class="add text-center my-4" name="customForm" id="custom">
+        <input class="form-control m-auto" id="customTime" type="text" name="minutes" placeholder="Enter Custom Time">
+      </form>
+
+      <div class="alerts">
+        <form> 
+          <h2> Visual Alert?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+          <input class="form-control" type="radio" name="visual" id="yesV"><h3>Yes</h3>
+          <input class="form-control" type="radio" name="visual" id="noV"><h3>No</h3>
+        </form>
+        <br>
+        <form>
+          <h2> Audio Alert?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+          <input class="form-control" type="radio" name="audio" id="yesA"><h3>Yes</h3>
+          <input class="form-control" type="radio" name="audio" id="noA"><h3>No</h3>
+        </form>
+      </div>
+    </div>
     <!-- ------------------SETTINGS CONTAINER ENDS HERE------------------- -->
 
     <!-- ------------------WEATHER CONTAINER STARTS HERE------------------ -->

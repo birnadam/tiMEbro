@@ -297,6 +297,13 @@ if (localStorage.getItem("city")) {
 // -------------------WEATHER JS ENDS   HERE--------------------- //
 
 // -------------------SETTINGS JS STARTS HERE------------------- //
+document.customForm.addEventListener("submit", function(e) {
+  e.preventDefault();
+  const mins = this.minutes.value;
+  console.log(mins);
+  timer(mins * 60);
+  this.reset();
+});
 // -------------------SETTINGS JS ENDS   HERE------------------- //
 
 // --------------------TIMEDATE JS STARTS HERE------------------ //
