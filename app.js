@@ -157,6 +157,7 @@ const generateTemplate = todo => {
   // appends to bottom of list
   list.innerHTML += html;
 };
+
 // add todo
 addForm.addEventListener("submit", e => {
   e.preventDefault();
@@ -165,8 +166,21 @@ addForm.addEventListener("submit", e => {
 
   //   check if todo has length
   if (todo.length) {
-    //   then run todo within the generate template
-    generateTemplate(todo);
+    if(localStorage.getItem("todos")){
+
+      const todos = localStorage.getItem("todos").split(",");
+      //   then run todo within the generate template
+      todos.push(todo);
+      // sets todo in local storage to todos
+      localStorage.setItem("todos", todos.join(","));
+    } else {
+      // conditional if there is no todos in local storage
+      localStorage.setItem("todos", todo)
+    }
+      // generate todo
+      generateTemplate(todo);
+    // to reset the form so user can input another todo
+    addForm.reset();
   }
 });
 
@@ -175,7 +189,16 @@ list.addEventListener("click", e => {
   // if clicked element with class with delete in it
   if (e.target.classList.contains("delete")) {
     // deletes parent element
+    const removeTodo = e.target.parentElement.textContent.trim();
     e.target.parentElement.remove();
+    // get local storage of todos and filter 
+    const todos = localStorage.getItem('todos').split(",");
+    const newTodos = todos.filter(todo => todo !== removeTodo);
+    // remove todos from local storage
+    localStorage.removeItem('todos');
+    // set local storage to newTodos 
+    localStorage.setItem('todos', newTodos);
+    
   }
 });
 
@@ -197,6 +220,19 @@ search.addEventListener("keyup", () => {
   // helper function
   filterTodos(term);
 });
+
+// auto generate from todos in local storage
+if (localStorage.getItem("todos")) {
+  // turn that into an array
+  const todos = localStorage.getItem("todos").split(",");
+  // for each todo in array
+  todos.forEach(todo => {
+    // generate a template or add that todo to the inner html
+    if(todo.length > 0){
+    generateTemplate(todo);
+    }
+  });
+}
 // --------------------TODO JS ENDS   HERE---------------------- //
 
 // -------------------WEATHER JS STARTS HERE-------------------- //
@@ -263,7 +299,9 @@ const updateUI = data => {
   const iconSrc = `assets/images/weather/icons/${weather.WeatherIcon}.svg`;
   icon.setAttribute("src", iconSrc);
 
-  let timeSrc = weather.IsDayTime ? "assets/images/weather/day.svg" : "assets/images/weather/night.svg";
+  let timeSrc = weather.IsDayTime
+    ? "assets/images/weather/day.svg"
+    : "assets/images/weather/night.svg";
 
   time.setAttribute("src", timeSrc);
 
@@ -280,7 +318,8 @@ cityForm.addEventListener("submit", e => {
   cityForm.reset();
 
   // update the ui with new city
-  forecast.updateCity(city)
+  forecast
+    .updateCity(city)
     .then(data => updateUI(data))
     .catch(err => console.log(err));
 
@@ -290,7 +329,8 @@ cityForm.addEventListener("submit", e => {
 
 // if it exists automatically makes the api call from previous
 if (localStorage.getItem("city")) {
-  forecast.updateCity(localStorage.getItem("city"))
+  forecast
+    .updateCity(localStorage.getItem("city"))
     .then(data => updateUI(data))
     .catch(err => console.log(err));
 }
@@ -308,7 +348,7 @@ document.customForm.addEventListener("submit", function(e) {
 
 // --------------------TIMEDATE JS STARTS HERE------------------ //
 const clock = document.querySelector(".clock");
-const date = document.querySelector('.date');
+const date = document.querySelector(".date");
 
 const tick = () => {
   const now = new Date();
@@ -320,7 +360,7 @@ const tick = () => {
   const AMPM = now.getHours() > 11 ? "PM" : "AM";
 
   const day = now.getDate();
-  const month = now.getMonth()+1;
+  const month = now.getMonth() + 1;
   const year = now.getFullYear();
 
   //   console.log(h, m, s);
@@ -331,10 +371,10 @@ const tick = () => {
     <span>${AMPM}</span>
     `;
 
-    clock.innerHTML = time;
+  clock.innerHTML = time;
 
-    const today = `<div>${month}/${day}/${year}</div>`;
-    date.innerHTML = today;
+  const today = `<div>${month}/${day}/${year}</div>`;
+  date.innerHTML = today;
 };
 
 // every second it will tick
