@@ -307,6 +307,38 @@ document.customForm.addEventListener("submit", function(e) {
 // -------------------SETTINGS JS ENDS   HERE------------------- //
 
 // --------------------TIMEDATE JS STARTS HERE------------------ //
+const clock = document.querySelector(".clock");
+const date = document.querySelector('.date');
+
+const tick = () => {
+  const now = new Date();
+
+  const h = now.getHours() > 12 ? now.getHours() - 12 : now.getHours();
+  const m = now.getMinutes();
+  const s = now.getSeconds();
+  // set AM or PM
+  const AMPM = now.getHours() > 11 ? "PM" : "AM";
+
+  const day = now.getDate();
+  const month = now.getMonth()+1;
+  const year = now.getFullYear();
+
+  //   console.log(h, m, s);
+  const time = `
+  <span>${h}</span> :
+    <span>${m}</span> :
+    <span>${s}</span>
+    <span>${AMPM}</span>
+    `;
+
+    clock.innerHTML = time;
+
+    const today = `<div>${month}/${day}/${year}</div>`;
+    date.innerHTML = today;
+};
+
+// every second it will tick
+setInterval(tick, 1000);
 // --------------------TIMEDATE JS ENDS   HERE------------------ //
 
 // ====================ANIMATION JS STARTS HERE================= //
