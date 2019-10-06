@@ -135,7 +135,7 @@ button img {
 .settings,
 .timedate {
   background: rgba(255, 255, 255, 0.707);
-  height: 250px;
+  height: fit-content;
   width: 400px;
   z-index: 1;
   border-radius: 5%;
@@ -148,12 +148,12 @@ h1 {
 }
 
 /* TODO STYLES */
-.todo {
+.todo, .settings {
   padding: 1rem;
 }
 
-input[type="text"],
-input[type="text"]:focus {
+.todo input[type="text"],
+.todo input[type="text"]:focus {
   color: #fff;
   border: none;
   background: rgba(190, 26, 26, 0.2);
@@ -182,6 +182,44 @@ input[type="text"]:focus {
 */ .filtered {
   /* !important increases precendence over other styles */
   display: none !important;
+}
+
+/* SETTINGS STYLES */
+.settings form {
+  flex: 1;
+  display: flex;
+}
+
+.settings input {
+  flex: 1;
+}
+
+.settings input[type="text"],
+.settings input[type="text"]:focus {
+  color: #fff;
+  border: none;
+  background: rgba(41, 6, 153, 0.2);
+  max-width: 400px;
+}
+
+#customTime {
+  font-weight: bold;
+  font-size: 16px;
+  color: rgba(190, 26, 26);
+}
+
+h3 {
+  padding: 0 10% 0 4%;
+}
+
+.alerts {
+  text-align: center;
+  color: goldenrod;
+  font-family: "Inconsolata", monospace;
+  font-weight: bold;
+  width: 350px;
+  padding-top: 1rem;
+  margin: auto;
 }
 
 /* MEDIA QUERIES */

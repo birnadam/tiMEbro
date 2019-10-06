@@ -34,7 +34,9 @@ $(document).on("click", ".buttonTodo", function() {
   } else {
     pageDisplayBool[0] = true; // show todo container
   }
-  pageDisplayBool[1] = false, pageDisplayBool[2] = false, pageDisplayBool[3] = false; // hide other containers
+  (pageDisplayBool[1] = false),
+    (pageDisplayBool[2] = false),
+    (pageDisplayBool[3] = false); // hide other containers
 
   displayer(); // toggle containers
 });
@@ -45,7 +47,9 @@ $(document).on("click", ".buttonSettings", function() {
   } else {
     pageDisplayBool[1] = true; // show settings container
   }
-  pageDisplayBool[0] = false, pageDisplayBool[2] = false, pageDisplayBool[3] = false; // hide other containers
+  (pageDisplayBool[0] = false),
+    (pageDisplayBool[2] = false),
+    (pageDisplayBool[3] = false); // hide other containers
 
   displayer(); // toggle containers
 });
@@ -56,7 +60,9 @@ $(document).on("click", ".buttonWeather", function() {
   } else {
     pageDisplayBool[2] = true; // show weather container
   }
-  pageDisplayBool[1] = false, pageDisplayBool[0] = false, pageDisplayBool[3] = false; // hide other containers
+  (pageDisplayBool[1] = false),
+    (pageDisplayBool[0] = false),
+    (pageDisplayBool[3] = false); // hide other containers
 
   displayer(); // toggle containers
 });
@@ -67,7 +73,9 @@ $(document).on("click", ".buttonTimedate", function() {
   } else {
     pageDisplayBool[3] = true; // show time/date container
   }
-  pageDisplayBool[1] = false, pageDisplayBool[2] = false, pageDisplayBool[0] = false; // hide other containers
+  (pageDisplayBool[1] = false),
+    (pageDisplayBool[2] = false),
+    (pageDisplayBool[0] = false); // hide other containers
 
   displayer(); // toggle containers
 });
@@ -171,13 +179,12 @@ list.addEventListener("click", e => {
   }
 });
 
-
 const filterTodos = term => {
-//   adds class filtered to those that do not match the term or what was entered into search bar
-    Array.from(list.children)
+  //   adds class filtered to those that do not match the term or what was entered into search bar
+  Array.from(list.children)
     .filter(todo => !todo.textContent.toLowerCase().includes(term))
     .forEach(todo => todo.classList.add("filtered"));
-// removes filtered class 
+  // removes filtered class
   Array.from(list.children)
     .filter(todo => todo.textContent.toLowerCase().includes(term))
     .forEach(todo => todo.classList.remove("filtered"));
@@ -187,7 +194,7 @@ const filterTodos = term => {
 search.addEventListener("keyup", () => {
   //   what user inputs in search bar
   const term = search.value.trim().toLowerCase();
-    // helper function
+  // helper function
   filterTodos(term);
 });
 // --------------------TODO JS ENDS   HERE---------------------- //
@@ -196,6 +203,13 @@ search.addEventListener("keyup", () => {
 // -------------------WEATER JS ENDS   HERE--------------------- //
 
 // -------------------SETTINGS JS STARTS HERE------------------- //
+document.customForm.addEventListener("submit", function(e) {
+  e.preventDefault();
+  const mins = this.minutes.value;
+  console.log(mins);
+  timer(mins * 60);
+  this.reset();
+});
 // -------------------SETTINGS JS ENDS   HERE------------------- //
 
 // --------------------TIMEDATE JS STARTS HERE------------------ //
