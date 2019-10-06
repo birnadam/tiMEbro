@@ -69,6 +69,7 @@ button img {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  z-index: 0;
 }
 
 .display {
@@ -297,15 +298,15 @@ h3 {
   .weather,
   .timedate {
     position: absolute;
-    top: 25%;
+    top: 5%;
   }
 
   .todo, .weather {
-    left: 10%;
+    left: 15%;
   }
 
   .settings, .timedate {
-    right: 10%;
+    right: 15%;
   }
 
   .timer__controls {
