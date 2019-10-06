@@ -157,6 +157,7 @@ const generateTemplate = todo => {
   // appends to bottom of list
   list.innerHTML += html;
 };
+
 // add todo
 addForm.addEventListener("submit", e => {
   e.preventDefault();
@@ -165,8 +166,21 @@ addForm.addEventListener("submit", e => {
 
   //   check if todo has length
   if (todo.length) {
-    //   then run todo within the generate template
-    generateTemplate(todo);
+    if(localStorage.getItem("todos")){
+
+      const todos = localStorage.getItem("todos").split(",");
+      //   then run todo within the generate template
+      todos.push(todo);
+      // sets todo in local storage to todos
+      localStorage.setItem("todos", todos.join(","));
+    } else {
+      // conditional if there is no todos in local storage
+      localStorage.setItem("todos", todo)
+    }
+      // generate todo
+      generateTemplate(todo);
+    // to reset the form so user can input another todo
+    addForm.reset();
   }
 });
 
@@ -175,7 +189,16 @@ list.addEventListener("click", e => {
   // if clicked element with class with delete in it
   if (e.target.classList.contains("delete")) {
     // deletes parent element
+    const removeTodo = e.target.parentElement.textContent.trim();
     e.target.parentElement.remove();
+    // get local storage of todos and filter 
+    const todos = localStorage.getItem('todos').split(",");
+    const newTodos = todos.filter(todo => todo !== removeTodo);
+    // remove todos from local storage
+    localStorage.removeItem('todos');
+    // set local storage to newTodos 
+    localStorage.setItem('todos', newTodos);
+    
   }
 });
 
@@ -197,6 +220,31 @@ search.addEventListener("keyup", () => {
   // helper function
   filterTodos(term);
 });
+
+// auto generate from todos in local storage
+if (localStorage.getItem("todos")) {
+  // turn that into an array
+  const todos = localStorage.getItem("todos").split(",");
+  // for each todo in array
+  todos.forEach(todo => {
+    // generate a template or add that todo to the inner html
+    if(todo.length > 0){
+    generateTemplate(todo);
+    }
+  });
+}
+
+if (localStorage.getItem("todos").length === 0){
+  const html = `
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+  <span>Please add a todo! :)</span>
+  <i class="far fa-trash-alt delete"></i>
+</li>
+  `;
+
+// appends to bottom of list
+list.innerHTML += html;
+}
 // --------------------TODO JS ENDS   HERE---------------------- //
 
 // -------------------WEATHER JS STARTS HERE-------------------- //
@@ -311,6 +359,38 @@ document.customForm.addEventListener("submit", function(e) {
 // -------------------SETTINGS JS ENDS   HERE------------------- //
 
 // --------------------TIMEDATE JS STARTS HERE------------------ //
+const clock = document.querySelector(".clock");
+const date = document.querySelector(".date");
+
+const tick = () => {
+  const now = new Date();
+
+  const h = now.getHours() > 12 ? now.getHours() - 12 : now.getHours();
+  const m = now.getMinutes();
+  const s = now.getSeconds();
+  // set AM or PM
+  const AMPM = now.getHours() > 11 ? "PM" : "AM";
+
+  const day = now.getDate();
+  const month = now.getMonth() + 1;
+  const year = now.getFullYear();
+
+  //   console.log(h, m, s);
+  const time = `
+  <span>${h}</span> :
+    <span>${m}</span> :
+    <span>${s}</span>
+    <span>${AMPM}</span>
+    `;
+
+  clock.innerHTML = time;
+
+  const today = `<div>${month}/${day}/${year}</div>`;
+  date.innerHTML = today;
+};
+
+// every second it will tick
+setInterval(tick, 1000);
 // --------------------TIMEDATE JS ENDS   HERE------------------ //
 
 // ====================ANIMATION JS STARTS HERE================= //
