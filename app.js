@@ -233,9 +233,9 @@ class Forecast {
   }
 }
 
-// **** used for dom manipulation
+// used for dom manipulation
 
-const cityForm = document.querySelector("form");
+const cityForm = document.querySelector("form .change-location");
 const card = document.querySelector(".card");
 const details = document.querySelector(".details");
 const time = document.querySelector("img.time");
@@ -294,7 +294,7 @@ if (localStorage.getItem("city")) {
     .then(data => updateUI(data))
     .catch(err => console.log(err));
 }
-// -------------------WEATER JS ENDS   HERE--------------------- //
+// -------------------WEATHER JS ENDS   HERE--------------------- //
 
 // -------------------SETTINGS JS STARTS HERE------------------- //
 document.customForm.addEventListener("submit", function(e) {
