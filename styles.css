@@ -161,7 +161,7 @@ h1 {
 }
 
 .todos li,
-.addTodo {
+.addTodo,.clock,.date, .weatherCard {
   /* background: #423a6f; */
   font-weight: bold;
   font-size: 16px;
