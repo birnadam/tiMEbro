@@ -81,7 +81,6 @@ button img {
 
 .display__time-left {
   font-weight: 100;
-  font-size: 25rem;
   margin-top: 15%;
   color: white;
   text-shadow: 8px 8px 0 rgba(190, 26, 26, 0.707);
@@ -132,14 +131,14 @@ button img {
 }
 
 .todo {
-  width: 400px;
+  width: 350px;
 }
 
 .settings,
 .timedate {
   background: rgba(255, 255, 255, 0.707);
   height: fit-content;
-  width: 400px;
+  width: 350px;
   z-index: 1;
   border-radius: 5%;
   box-shadow: 8px 8px 0 rgba(190, 26, 26, 0.707);
@@ -280,32 +279,45 @@ h3 {
 }
 
 /* MEDIA QUERIES */
-@media only screen and (min-width: 569px) {
+@media only screen and (min-width: 469px) {
   .timer__controls {
     margin-bottom: 40%;
   }
 
-  .todo,
-  .settings {
-    position: absolute;
-    top: 1%;
+  .display__time-left { 
+    font-size: 16rem;
   }
 
-  .todo {
-    left: 25%;
+  .todo, .settings, .weather, .timedate {
+    background: rgba(255, 255, 255);
   }
-  .settings {
-    right: 25%;
-  }
+
+  .todo,
+  .settings,
   .weather,
   .timedate {
     position: absolute;
-    bottom: 1%;
-    right: 25%;
+    top: 25%;
+  }
+
+  .todo, .weather {
+    left: 10%;
+  }
+
+  .settings, .timedate {
+    right: 10%;
   }
 }
 
 @media only screen and (min-width: 969px) {
+  .display__time-left { 
+    font-size: 22rem;
+  }
+
+  .todo, .settings, .weather, .timedate {
+    background: rgba(255, 255, 255, .707);
+  }
+
   .todo,
   .weather {
     top: 25%;
