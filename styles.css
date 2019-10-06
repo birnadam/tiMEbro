@@ -126,10 +126,13 @@ button img {
 .weather {
   background: rgba(255, 255, 255, 0.707);
   height: fit-content;
-  width: 400px;
   z-index: 1;
   border-radius: 5%;
   box-shadow: 8px 8px 0 rgba(41, 6, 153, 0.707);
+}
+
+.todo {
+  width: 400px;
 }
 
 .settings,
@@ -148,7 +151,8 @@ h1 {
 }
 
 /* TODO STYLES */
-.todo, .settings {
+.todo,
+.settings {
   padding: 1rem;
 }
 
@@ -184,20 +188,57 @@ h1 {
   cursor: pointer;
 }
 
-.weatherContainer {
-  background: #eeedec;
-  letter-spacing: 0.2em;
-  font-size: 0.8em;
-  max-width: 400px;
+/* WEATHER STYLES */
+.weather {
+  padding: 1rem;
+  width: 285px;
+  font-weight: bold;
+}
+
+.weather label {
+  font-size: 12px;
+}
+
+.weather input[type="text"],
+.weather input[type="text"]:focus {
+  font-size: 16px;
+  font-weight: bold;
+  color: rgba(41, 6, 153);
+  border: none;
+  background: rgba(190, 26, 26, 0.2);
+  max-width: 285px;
+}
+
+.weatherCard {
+  height: 263px;
+  border-radius: 5%;
+}
+
+.card-img-top {
+  height: 263px;
+  border-radius: 5%;
 }
 
 .icon {
-  position: relative;
-  top: -50px;
+  position: absolute;
+  bottom: 95px;
   /* making it a perfect circle */
   border-radius: 50%;
   width: 100px;
-  margin-bottom: -50px;
+  z-index: 1;
+}
+
+.details {
+  background: rgba(255, 255, 255, 0.707);
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  z-index: 0;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom-left-radius: 5%;
+  border-bottom-right-radius: 5%;
+  color: goldenrod;
 }
 
 /* SETTINGS STYLES */

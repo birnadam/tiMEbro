@@ -263,7 +263,9 @@ const updateUI = data => {
   const iconSrc = `assets/images/weather/icons/${weather.WeatherIcon}.svg`;
   icon.setAttribute("src", iconSrc);
 
-  let timeSrc = weather.IsDayTime ? "assets/images/weather/day.svg" : "assets/images/weather/night.svg";
+  let timeSrc = weather.IsDayTime
+    ? "assets/images/weather/day.svg"
+    : "assets/images/weather/night.svg";
 
   time.setAttribute("src", timeSrc);
 
@@ -280,7 +282,8 @@ cityForm.addEventListener("submit", e => {
   cityForm.reset();
 
   // update the ui with new city
-  forecast.updateCity(city)
+  forecast
+    .updateCity(city)
     .then(data => updateUI(data))
     .catch(err => console.log(err));
 
@@ -290,7 +293,8 @@ cityForm.addEventListener("submit", e => {
 
 // if it exists automatically makes the api call from previous
 if (localStorage.getItem("city")) {
-  forecast.updateCity(localStorage.getItem("city"))
+  forecast
+    .updateCity(localStorage.getItem("city"))
     .then(data => updateUI(data))
     .catch(err => console.log(err));
 }
