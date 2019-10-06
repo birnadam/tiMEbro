@@ -103,6 +103,7 @@ button img {
   cursor: pointer;
   color: white;
   width: 125px;
+  font-weight: bold;
   font-size: 3rem;
   text-transform: uppercase;
   border-bottom: 3px solid rgba(0, 0, 0, 0.2);
@@ -121,16 +122,18 @@ button img {
 }
 
 /* CONTAINER STYLES */
-.todo, .weather {
+.todo,
+.weather {
   background: rgba(255, 255, 255, 0.707);
-  height: 250px;
+  height: fit-content;
   width: 400px;
   z-index: 1;
   border-radius: 5%;
   box-shadow: 8px 8px 0 rgba(41, 6, 153, 0.707);
 }
 
-.settings, .timedate {
+.settings,
+.timedate {
   background: rgba(255, 255, 255, 0.707);
   height: 250px;
   width: 400px;
@@ -139,9 +142,46 @@ button img {
   box-shadow: 8px 8px 0 rgba(190, 26, 26, 0.707);
 }
 
-h1{
+h1 {
   color: goldenrod;
   font-weight: bold;
+}
+
+/* TODO STYLES */
+.todo {
+  padding: 1rem;
+}
+
+input[type="text"],
+input[type="text"]:focus {
+  color: #fff;
+  border: none;
+  background: rgba(190, 26, 26, 0.2);
+  max-width: 400px;
+}
+
+.todos li,
+.addTodo {
+  /* background: #423a6f; */
+  font-weight: bold;
+  font-size: 16px;
+  color: goldenrod;
+}
+
+#search,
+#addTodo {
+  font-weight: bold;
+  font-size: 16px;
+  color: rgba(41, 6, 153);
+}
+
+.delete {
+  cursor: pointer;
+}
+
+*/ .filtered {
+  /* !important increases precendence over other styles */
+  display: none !important;
 }
 
 /* MEDIA QUERIES */
@@ -150,18 +190,20 @@ h1{
     margin-bottom: 40%;
   }
 
-  .todo, .settings{
+  .todo,
+  .settings {
     position: absolute;
     top: 1%;
   }
-  
+
   .todo {
     left: 25%;
   }
-  .settings{
+  .settings {
     right: 25%;
   }
-  .weather, .timedate {
+  .weather,
+  .timedate {
     position: absolute;
     bottom: 1%;
     right: 25%;
@@ -169,40 +211,15 @@ h1{
 }
 
 @media only screen and (min-width: 969px) {
-  .todo, .weather {
+  .todo,
+  .weather {
     top: 25%;
     left: 5%;
   }
 
-  .settings, .timedate {
+  .settings,
+  .timedate {
     top: 25%;
     right: 5%;
   }
-}
-
-/* todo styles */
- 
-.todoContainer {
-  /* background: #352f5b; */
-  max-width: 400px;
-}
-input[type="text"],
-input[type="text"]:focus {
-  color: #fff;
-  border: none;
-  background: rgba(0, 0, 0, 0.2);
-  max-width: 400px;
-}
-.todos li, .addTodo, #search, #addTodo {
-  /* background: #423a6f; */
-  color: goldenrod;
-  font-weight: bold;
-}
-.delete {
-  cursor: pointer;
-} */
-
-.filtered {
-    /* !important increases precendence over other styles */
-  display: none !important;
 }
