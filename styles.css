@@ -179,3 +179,30 @@ h1{
     right: 5%;
   }
 }
+
+/* todo styles */
+ 
+.todoContainer {
+  /* background: #352f5b; */
+  max-width: 400px;
+}
+input[type="text"],
+input[type="text"]:focus {
+  color: #fff;
+  border: none;
+  background: rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+}
+.todos li, .addTodo, #search, #addTodo {
+  /* background: #423a6f; */
+  color: goldenrod;
+  font-weight: bold;
+}
+.delete {
+  cursor: pointer;
+} */
+
+.filtered {
+    /* !important increases precendence over other styles */
+  display: none !important;
+}
