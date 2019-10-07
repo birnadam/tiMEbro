@@ -86,6 +86,11 @@ let countdown;
 const timerDisplay = document.querySelector(".display__time-left");
 const endTime = document.querySelector(".display__end-time");
 const buttons = document.querySelectorAll("[data-time]");
+const audio = new Audio("./assets/audio/timerEnd.mp3");
+const audioAlert = document.getElementsByName("audio");
+let selectedAudioAlert = false;
+const visualAlert = document.getElementsByName("visual");
+let selectedVisualAlert = false;
 
 function timer(seconds) {
   // clear any existing timers
@@ -99,8 +104,27 @@ function timer(seconds) {
   countdown = setInterval(() => {
     const secondsLeft = Math.round((then - Date.now()) / 1000);
 
-    // check if we should stop it!
-    if (secondsLeft < 0) {
+    // what happens when countdown reaches 0
+    if (secondsLeft < 0 && selectedAudioAlert === 1) {
+      clearInterval(countdown);
+      // play audio from above
+      audio.play();
+      return;
+    } else if (secondsLeft < 0 && selectedVisualAlert === 1) {
+      clearInterval(countdown);
+      // **** DISPLAY SOMETHING ****
+      return;
+    } else if (
+      secondsLeft < 0 &&
+      selectedAudioAlert === 1 &&
+      selectedVisualAlert === 1
+    ) {
+      clearInterval(countdown);
+      // play audio from above
+      // **** DISPLAY SOMETHING ****
+      audio.play();
+      return;
+    } else if (secondsLeft < 0) {
       clearInterval(countdown);
       return;
     }
@@ -166,8 +190,7 @@ addForm.addEventListener("submit", e => {
 
   //   check if todo has length
   if (todo.length) {
-    if(localStorage.getItem("todos")){
-
+    if (localStorage.getItem("todos")) {
       const todos = localStorage.getItem("todos").split(",");
       //   then run todo within the generate template
       todos.push(todo);
@@ -175,10 +198,10 @@ addForm.addEventListener("submit", e => {
       localStorage.setItem("todos", todos.join(","));
     } else {
       // conditional if there is no todos in local storage
-      localStorage.setItem("todos", todo)
+      localStorage.setItem("todos", todo);
     }
-      // generate todo
-      generateTemplate(todo);
+    // generate todo
+    generateTemplate(todo);
     // to reset the form so user can input another todo
     addForm.reset();
   }
@@ -191,14 +214,13 @@ list.addEventListener("click", e => {
     // deletes parent element
     const removeTodo = e.target.parentElement.textContent.trim();
     e.target.parentElement.remove();
-    // get local storage of todos and filter 
-    const todos = localStorage.getItem('todos').split(",");
+    // get local storage of todos and filter
+    const todos = localStorage.getItem("todos").split(",");
     const newTodos = todos.filter(todo => todo !== removeTodo);
     // remove todos from local storage
-    localStorage.removeItem('todos');
-    // set local storage to newTodos 
-    localStorage.setItem('todos', newTodos);
-    
+    localStorage.removeItem("todos");
+    // set local storage to newTodos
+    localStorage.setItem("todos", newTodos);
   }
 });
 
@@ -228,13 +250,13 @@ if (localStorage.getItem("todos")) {
   // for each todo in array
   todos.forEach(todo => {
     // generate a template or add that todo to the inner html
-    if(todo.length > 0){
-    generateTemplate(todo);
+    if (todo.length > 0) {
+      generateTemplate(todo);
     }
   });
 }
 
-if (localStorage.getItem("todos").length === 0){
+if (localStorage.getItem("todos").length === 0) {
   const html = `
   <li class="list-group-item d-flex justify-content-between align-items-center">
   <span>Please add a todo! :)</span>
@@ -242,8 +264,8 @@ if (localStorage.getItem("todos").length === 0){
 </li>
   `;
 
-// appends to bottom of list
-list.innerHTML += html;
+  // appends to bottom of list
+  list.innerHTML += html;
 }
 // --------------------TODO JS ENDS   HERE---------------------- //
 
@@ -352,9 +374,26 @@ if (localStorage.getItem("city")) {
 document.customForm.addEventListener("submit", function(e) {
   e.preventDefault();
   const mins = this.minutes.value;
-  console.log(mins);
+  // console.log(mins);
   timer(mins * 60);
-  this.reset();
+  // so they can keep their time
+  // this.reset();
+
+  // check if visual alert is checked value will be 0 or 1
+  // console.log(visualAlert.checked.value);
+  for (let i = 0; i < visualAlert.length; i++) {
+    if(visualAlert[i].checked){
+      selectedVisualAlert = visualAlert[i].value;
+      console.log("visual" + selectedVisualAlert);
+    } 
+
+    for(let i = 0; i < audioAlert.length; i ++){
+      if(audioAlert[i].checked){
+        selectedAudioAlert = audioAlert[i].value;
+        console.log("audio" + selectedAudioAlert);
+      }
+    }
+  }
 });
 // -------------------SETTINGS JS ENDS   HERE------------------- //
 
@@ -366,7 +405,10 @@ const tick = () => {
   const now = new Date();
 
   const h = now.getHours() > 12 ? now.getHours() - 12 : now.getHours();
-  const m = now.getMinutes();
+  const m =
+    now.getMinutes() < 10
+      ? "0" + JSON.stringify(now.getMinutes())
+      : now.getMinutes();
   const s = now.getSeconds();
   // set AM or PM
   const AMPM = now.getHours() > 11 ? "PM" : "AM";
