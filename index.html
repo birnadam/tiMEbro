@@ -64,6 +64,7 @@
           <!-- <h1 class="mb-4">Todo List</h1> -->
           <form class="search">
             <input class="form-control m-auto" id="search" type="text" name="search" placeholder="Search Todos" />
+            <input type="submit" value="Submit">
           </form>
         </header>
     
@@ -85,6 +86,7 @@
         <form class="add text-center my-4">
           <!-- <label class="addTodo">Add a new todo...</label> -->
           <input class="form-control m-auto" id="addTodo" type="text" name="add" placeholder="Add a New Todo"/>
+          <input type="submit" value="Submit">
         </form>
       </div>
     <!-- --------------------TODO CONTAINER ENDS HERE--------------------- -->
@@ -93,11 +95,12 @@
     <div class="settings">
       <h1>Settings</h1>
       <form class="add text-center my-4" name="customForm" id="custom">
-        <input class="form-control m-auto" id="customTime" type="text" name="minutes" placeholder="Enter Custom Time (in mins)">
+        <input class="form-control m-auto" id="customTime" type="text" name="minutes" placeholder="Enter Custom Time (in Minutes)">
+        <input type="submit" value="Submit">
       </form>
 
       <div class="alerts">
-        <form> 
+        <form class="visual"> 
           <h2> Visual Alert?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
           <input class="form-control" type="radio" name="visual" id="yesV" value="1"><h3>Yes</h3>
           <input class="form-control" type="radio" name="visual" id="noV" value="0"><h3>No</h3>
@@ -120,6 +123,7 @@
         <form class="change-location my-4 text-center text-muted">
           <label for="city">Enter a Location for Weather Information</label>
           <input type="text" name="city" class="form-control p-4" value=""/>
+          <input type="submit" value="Submit">
         </form>
   
         <div class="weatherCard card d-none">

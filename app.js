@@ -105,16 +105,7 @@ function timer(seconds) {
     const secondsLeft = Math.round((then - Date.now()) / 1000);
 
     // what happens when countdown reaches 0
-    if (secondsLeft < 0 && selectedAudioAlert == "1") {
-      clearInterval(countdown);
-      // play audio from above
-      audio.play();
-      return;
-    } else if (secondsLeft < 0 && selectedVisualAlert == "1") {
-      clearInterval(countdown);
-      // **** DISPLAY SOMETHING ****
-      return;
-    } else if (
+    if (
       secondsLeft < 0 &&
       selectedAudioAlert == "1" &&
       selectedVisualAlert == "1"
@@ -123,6 +114,19 @@ function timer(seconds) {
       // play audio from above
       // **** DISPLAY SOMETHING ****
       audio.play();
+      document.title = "Time's Up!";
+      alert("Time's Up!");
+      return;
+    } else if (secondsLeft < 0 && selectedAudioAlert == "1") {
+      clearInterval(countdown);
+      // play audio from above
+      audio.play();
+      return;
+    } else if (secondsLeft < 0 && selectedVisualAlert == "1") {
+      clearInterval(countdown);
+      // **** DISPLAY SOMETHING ****
+      document.title = "Time's Up!";
+      alert("Time's Up!");
       return;
     } else if (secondsLeft < 0) {
       clearInterval(countdown);
@@ -382,13 +386,13 @@ document.customForm.addEventListener("submit", function(e) {
   // check if visual alert is checked value will be 0 or 1
   // console.log(visualAlert.checked.value);
   for (let i = 0; i < visualAlert.length; i++) {
-    if(visualAlert[i].checked){
+    if (visualAlert[i].checked) {
       selectedVisualAlert = visualAlert[i].value;
       // console.log("visual" + selectedVisualAlert);
-    } 
+    }
 
-    for(let i = 0; i < audioAlert.length; i ++){
-      if(audioAlert[i].checked){
+    for (let i = 0; i < audioAlert.length; i++) {
+      if (audioAlert[i].checked) {
         selectedAudioAlert = audioAlert[i].value;
         // console.log("audio" + selectedAudioAlert);
       }
