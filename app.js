@@ -384,13 +384,13 @@ document.customForm.addEventListener("submit", function(e) {
   for (let i = 0; i < visualAlert.length; i++) {
     if(visualAlert[i].checked){
       selectedVisualAlert = visualAlert[i].value;
-      console.log("visual" + selectedVisualAlert);
+      // console.log("visual" + selectedVisualAlert);
     } 
 
     for(let i = 0; i < audioAlert.length; i ++){
       if(audioAlert[i].checked){
         selectedAudioAlert = audioAlert[i].value;
-        console.log("audio" + selectedAudioAlert);
+        // console.log("audio" + selectedAudioAlert);
       }
     }
   }
