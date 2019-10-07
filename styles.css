@@ -34,39 +34,67 @@ body {
 }
 
 /* BUTTON STYLES */
-button img {
+.buttonTodo img, .buttonWeather img, .buttonSettings img {
   height: 55px;
   width: 55px;
   border: 1px solid goldenrod;
   border-radius: 50px;
   box-shadow: 4px 4px 4px goldenrod;
+  background: rgba(255, 255, 255, 0.807);
 }
 
-button img:hover {
+.buttonTodo img:hover, .buttonWeather img:hover, .buttonSettings img:hover {
   height: 58px;
   width: 58px;
+  transition: all .2s ease-in-out;
 }
 
 .buttonTodo {
-  filter: invert(1);
+  /* filter: invert(1); */
   position: absolute;
   top: 5%;
   left: 5%;
 }
 
 .buttonWeather {
-  filter: invert(.1);
+  /* filter: invert(.1); */
   position: absolute;
   bottom: 5%;
   left: 5%;
 }
 
 .buttonSettings {
-  filter: invert(1);
+  /* filter: invert(1); */
   position: absolute;
   top: 5%;
   right: 5%;
 }
+
+.buttonClose img {
+  height: 20px;
+  width: 20px;
+  border: 1px solid red;
+  border-radius: 50px;
+  box-shadow: 2px 2px 2px red;
+  background: rgba(255, 0, 0, 0.807);
+}
+
+.buttonClose img:hover {
+  height: 21px;
+  width: 21px;
+  transition: all .2s ease-in-out;
+}
+
+.buttonClose {
+  position: absolute;
+  top: 2.5%;
+  right: 2.5%;
+}
+
+/* .buttonClose img {
+  height: 25%;
+  width: 25%;
+} */
 
 .buttonTimedate {
   position: absolute;
@@ -140,15 +168,14 @@ button img:hover {
   box-shadow: 8px 8px 0 rgba(41, 6, 153, 0.707);
 }
 
-.todo {
-  width: 350px;
+.todo, .settings {
+  width: 335px;
 }
 
 .settings,
 .timedate {
   background: rgba(255, 255, 255, 0.707);
   height: fit-content;
-  width: 350px;
   z-index: 1;
   border-radius: 5%;
   box-shadow: 8px 8px 0 rgba(190, 26, 26, 0.707);
@@ -269,18 +296,18 @@ input[type="submit"]:focus {
   color: #fff;
   border: none;
   background: rgba(70, 53, 11, 0.2);
-  max-width: 50px;
+  max-width: 60px;
   border-radius: 5%;
   font-size: 12px;
   font-weight: bold;
-  border-bottom: 3px solid rgba(0, 0, 0, 0.2);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
   border-right: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 input[type="submit"]:hover {
   color: goldenrod;
   background: inherit;
-  border: 1px goldenrod;
+  border: 1px solid goldenrod;
   box-shadow: 2px 2px 0 rgba(218, 165, 32, 0.707);
 }
 
@@ -316,6 +343,7 @@ h3 {
 @media only screen and (min-width: 369px) {
   .timer {
     z-index: 0;
+    margin-top: 20%;
   }
 
   .timer__controls {
@@ -346,14 +374,16 @@ h3 {
     top: 5%;
   }
 
-  .todo,
   .weather {
     left: 15%;
   }
 
-  .settings,
-  .timedate {
-    right: 15%;
+  .todo {
+    left: 12%;
+  }
+
+  .settings {
+    right: 12%;
   }
 }
 
@@ -363,6 +393,7 @@ h3 {
     min-height: 100vh;
     flex-direction: column;
     z-index: 0;
+    margin-top: 0%;
   }
   .timer__button {
     margin: 0rem 2.5rem;

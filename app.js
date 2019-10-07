@@ -67,15 +67,10 @@ $(document).on("click", ".buttonWeather", function() {
   displayer(); // toggle containers
 });
 
-$(document).on("click", ".buttonTimedate", function() {
-  if (pageDisplayBool[3]) {
-    pageDisplayBool[3] = false; // hides both containers if icon clicked while container is open
-  } else {
-    pageDisplayBool[3] = true; // show time/date container
-  }
-  (pageDisplayBool[1] = false),
-    (pageDisplayBool[2] = false),
-    (pageDisplayBool[0] = false); // hide other containers
+$(document).on("click", ".buttonClose", function() {
+  for (let i = 0; i < pageDisplayBool.length; i++) {
+    pageDisplayBool[i] = false;
+  } // hide containers
 
   displayer(); // toggle containers
 });

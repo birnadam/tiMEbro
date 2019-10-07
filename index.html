@@ -62,6 +62,9 @@
     <!-- =====================CONTAINERS START HERE======================= -->
     <!-- ------------------TODO CONTAINER STARTS HERE--------------------- -->
     <div class="todo">
+        <button type="button" class="buttonClose btn">
+            <img id=closeButton src="./assets/images/close.png"></img>
+          </button>
       <h1>Todos</h1>
         <header class="text-center text-light my-4">
           <!-- <h1 class="mb-4">Todo List</h1> -->
@@ -96,21 +99,24 @@
 
     <!-- -----------------SETTINGS CONTAINER STARTS HERE------------------ -->
     <div class="settings">
+        <button type="button" class="buttonClose btn">
+            <img id=closeButton src="./assets/images/close.png"></img>
+          </button>
       <h1>Settings</h1>
       <form class="add text-center my-4" name="customForm" id="custom">
-        <input class="form-control m-auto" id="customTime" type="text" name="minutes" placeholder="Enter Custom Time (in Minutes)">
+        <input class="form-control m-auto" id="customTime" type="text" name="minutes" placeholder="Enter Custom Minutes">
         <input type="submit" value="Submit">
       </form>
 
       <div class="alerts">
         <form class="visual"> 
-          <h2> Visual Alert?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+          <h2> Visual Alert?&nbsp;</h2>
           <input class="form-control" type="radio" name="visual" id="yesV" value="1"><h3>Yes</h3>
           <input class="form-control" type="radio" name="visual" id="noV" value="0"><h3>No</h3>
         </form>
         <br>
         <form class="audio">
-          <h2> Audio Alert?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+          <h2> Audio Alert?&nbsp;&nbsp;</h2>
           <input class="audio form-control" type="radio" name="audio" id="yesA" value="1"><h3>Yes</h3>
           <input class="form-control" type="radio" name="audio" id="noA" value="0"><h3>No</h3>
         </form>
@@ -120,6 +126,9 @@
 
     <!-- ------------------WEATHER CONTAINER STARTS HERE------------------ -->
       <div class="weather">
+          <button type="button" class="buttonClose btn">
+              <img id=closeButton src="./assets/images/close.png"></img>
+            </button>
         <h1>Weather</h1>
         <!-- <h1 class="text-muted text-center my-4">Weather</h1> -->
   
