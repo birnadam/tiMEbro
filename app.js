@@ -255,7 +255,7 @@ if (localStorage.getItem("todos")) {
   });
 }
 
-if (localStorage.getItem("todos").length === 0) {
+if (!localStorage.getItem("todos")) {
   const html = `
   <li class="list-group-item d-flex justify-content-between align-items-center">
   <span>Don't be lazy!</span>
