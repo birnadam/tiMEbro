@@ -105,19 +105,19 @@ function timer(seconds) {
     const secondsLeft = Math.round((then - Date.now()) / 1000);
 
     // what happens when countdown reaches 0
-    if (secondsLeft < 0 && selectedAudioAlert === 1) {
+    if (secondsLeft < 0 && selectedAudioAlert == "1") {
       clearInterval(countdown);
       // play audio from above
       audio.play();
       return;
-    } else if (secondsLeft < 0 && selectedVisualAlert === 1) {
+    } else if (secondsLeft < 0 && selectedVisualAlert == "1") {
       clearInterval(countdown);
       // **** DISPLAY SOMETHING ****
       return;
     } else if (
       secondsLeft < 0 &&
-      selectedAudioAlert === 1 &&
-      selectedVisualAlert === 1
+      selectedAudioAlert == "1" &&
+      selectedVisualAlert == "1"
     ) {
       clearInterval(countdown);
       // play audio from above
@@ -384,13 +384,13 @@ document.customForm.addEventListener("submit", function(e) {
   for (let i = 0; i < visualAlert.length; i++) {
     if(visualAlert[i].checked){
       selectedVisualAlert = visualAlert[i].value;
-      console.log("visual" + selectedVisualAlert);
+      // console.log("visual" + selectedVisualAlert);
     } 
 
     for(let i = 0; i < audioAlert.length; i ++){
       if(audioAlert[i].checked){
         selectedAudioAlert = audioAlert[i].value;
-        console.log("audio" + selectedAudioAlert);
+        // console.log("audio" + selectedAudioAlert);
       }
     }
   }
