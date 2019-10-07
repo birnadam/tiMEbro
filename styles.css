@@ -34,7 +34,9 @@ body {
 }
 
 /* BUTTON STYLES */
-.buttonTodo img, .buttonWeather img, .buttonSettings img {
+.buttonTodo img,
+.buttonWeather img,
+.buttonSettings img {
   height: 55px;
   width: 55px;
   border: 1px solid goldenrod;
@@ -43,10 +45,12 @@ body {
   background: rgba(255, 255, 255, 0.807);
 }
 
-.buttonTodo img:hover, .buttonWeather img:hover, .buttonSettings img:hover {
+.buttonTodo img:hover,
+.buttonWeather img:hover,
+.buttonSettings img:hover {
   height: 58px;
   width: 58px;
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .buttonTodo {
@@ -82,7 +86,7 @@ body {
 .buttonClose img:hover {
   height: 21px;
   width: 21px;
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .buttonClose {
@@ -103,7 +107,8 @@ body {
   z-index: 1;
 }
 
-.clock, .date {
+.clock,
+.date {
   font-weight: bold;
   color: goldenrod;
   font-size: 18px;
@@ -169,7 +174,8 @@ body {
   box-shadow: 8px 8px 0 rgba(41, 6, 153, 0.707);
 }
 
-.todo, .settings {
+.todo,
+.settings {
   width: 335px;
 }
 
@@ -380,15 +386,15 @@ h3 {
   }
 
   .todo {
-    left: 1%;
+    left: 1.5%;
   }
 
   .settings {
-    right: 1%;
+    right: 1.5%;
   }
 }
 
-@media only screen and (min-width: 969px) {
+@media only screen and (min-width: 569px) {
   .timer {
     display: flex;
     min-height: 100vh;
