@@ -65,13 +65,6 @@ button img {
 }
 
 /* TIMER STYLES */
-.timer {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-  z-index: 0;
-}
-
 .display {
   flex: 1;
   display: flex;
@@ -106,11 +99,11 @@ button img {
   font-weight: bold;
   font-size: 3rem;
   text-transform: uppercase;
+  margin: 0rem 2.5rem;
   border-bottom: 3px solid rgba(0, 0, 0, 0.2);
   border-right: 1px solid rgba(0, 0, 0, 0.2);
   font-family: "Inconsolata", monospace;
   background: rgba(190, 26, 26, 0.707);
-  margin: 0 2.5rem;
   border-radius: 5%;
   box-shadow: 2px 2px 0 rgba(255, 255, 255, 0.707);
 }
@@ -281,8 +274,17 @@ h3 {
 
 /* MEDIA QUERIES */
 @media only screen and (min-width: 469px) {
+  .timer {
+    z-index: 0;
+  }
+
   .timer__controls {
     margin-bottom: 40%;
+  }
+
+  .timer__button {
+    margin: 1rem 2.5rem;
+    font-size: 2rem;
   }
 
   .display__time-left { 
@@ -308,13 +310,19 @@ h3 {
   .settings, .timedate {
     right: 15%;
   }
-
-  .timer__controls {
-    margin-bottom: 75%;
-  }
 }
 
 @media only screen and (min-width: 969px) {
+  .timer {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    z-index: 0;
+  }
+  .timer__button{
+    margin: 0rem 2.5rem;
+    font-size: 3rem;
+  }
   .display__time-left { 
     font-size: 22rem;
   }
