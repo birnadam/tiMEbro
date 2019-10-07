@@ -35,32 +35,34 @@ body {
 
 /* BUTTON STYLES */
 button img {
-  height: 65px;
-  width: 65px;
-  filter: invert(1);
+  height: 55px;
+  width: 55px;
   border: 1px solid goldenrod;
   border-radius: 50px;
   box-shadow: 4px 4px 4px goldenrod;
 }
 
 button img:hover {
-  height: 75px;
-  width: 75px;
+  height: 58px;
+  width: 58px;
 }
 
 .buttonTodo {
+  filter: invert(1);
   position: absolute;
   top: 5%;
   left: 5%;
 }
 
 .buttonWeather {
+  filter: invert(.1);
   position: absolute;
   bottom: 5%;
   left: 5%;
 }
 
 .buttonSettings {
+  filter: invert(1);
   position: absolute;
   top: 5%;
   right: 5%;
@@ -70,6 +72,12 @@ button img:hover {
   position: absolute;
   bottom: 5%;
   right: 5%;
+}
+
+.clock, .date {
+  font-weight: bold;
+  color: goldenrod;
+  font-size: 18px;
 }
 
 /* TIMER STYLES */
@@ -166,7 +174,8 @@ h1 {
 }
 
 .todos li,
-.addTodo,.clock,.date, .weatherCard {
+.addTodo,
+.weatherCard {
   /* background: #423a6f; */
   font-weight: bold;
   font-size: 16px;
@@ -244,12 +253,14 @@ h1 {
 }
 
 /* SETTINGS STYLES */
-.settings form, .todo form {
+.settings form,
+.todo form {
   flex: 1;
   display: flex;
 }
 
-.settings input, .todo input {
+.settings input,
+.todo input {
   flex: 1;
 }
 
@@ -316,11 +327,14 @@ h3 {
     font-size: 2rem;
   }
 
-  .display__time-left { 
+  .display__time-left {
     font-size: 15rem;
   }
 
-  .todo, .settings, .weather, .timedate {
+  .todo,
+  .settings,
+  .weather,
+  .timedate {
     background: rgba(255, 255, 255);
   }
 
@@ -332,11 +346,13 @@ h3 {
     top: 5%;
   }
 
-  .todo, .weather {
+  .todo,
+  .weather {
     left: 15%;
   }
 
-  .settings, .timedate {
+  .settings,
+  .timedate {
     right: 15%;
   }
 }
@@ -348,16 +364,19 @@ h3 {
     flex-direction: column;
     z-index: 0;
   }
-  .timer__button{
+  .timer__button {
     margin: 0rem 2.5rem;
     font-size: 3rem;
   }
-  .display__time-left { 
+  .display__time-left {
     font-size: 22rem;
   }
 
-  .todo, .settings, .weather, .timedate {
-    background: rgba(255, 255, 255, .707);
+  .todo,
+  .settings,
+  .weather,
+  .timedate {
+    background: rgba(255, 255, 255, 0.707);
   }
 
   .todo,

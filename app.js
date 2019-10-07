@@ -263,8 +263,16 @@ if (localStorage.getItem("todos")) {
 if (localStorage.getItem("todos").length === 0) {
   const html = `
   <li class="list-group-item d-flex justify-content-between align-items-center">
-  <span>Please add a todo! :)</span>
+  <span>Don't be lazy!</span>
   <i class="far fa-trash-alt delete"></i>
+</li>
+<li class="list-group-item d-flex justify-content-between align-items-center">
+<span>The sooner you start..</span>
+<i class="far fa-trash-alt delete"></i>
+</li>
+<li class="list-group-item d-flex justify-content-between align-items-center">
+<span>The sooner you'll finish! :)</span>
+<i class="far fa-trash-alt delete"></i>
 </li>
   `;
 
@@ -413,7 +421,9 @@ const tick = () => {
     now.getMinutes() < 10
       ? "0" + JSON.stringify(now.getMinutes())
       : now.getMinutes();
-  const s = now.getSeconds();
+  const s = now.getSeconds() < 10
+  ? "0" + JSON.stringify(now.getSeconds())
+  : now.getSeconds();
   // set AM or PM
   const AMPM = now.getHours() > 11 ? "PM" : "AM";
 
@@ -431,7 +441,7 @@ const tick = () => {
 
   clock.innerHTML = time;
 
-  const today = `<div>${month}/${day}/${year}</div>`;
+  const today = `<div><span>${month}</span> / <span>${day}</span> / <span>${year}</span></div>`;
   date.innerHTML = today;
 };
 
