@@ -61,7 +61,7 @@
 
     <!-- =====================CONTAINERS START HERE======================= -->
     <!-- ------------------TODO CONTAINER STARTS HERE--------------------- -->
-    <div class="todo dragscroll">
+    <div class="todo">
       <button type="button" class="buttonClose btn">
         <img id=closeButton src="./assets/images/close.png"></img>
       </button>
@@ -73,22 +73,22 @@
             <input type="submit" value="Submit">
           </form>
         </header>
-    
-        <ul class="list-group todos mx-auto text-light">
-          <!-- <li class="list-group-item d-flex justify-content-between align-items-center">
-            <span>Eat</span>
-            <i class="far fa-trash-alt delete"></i>
-          </li>
-          <li class="list-group-item d-flex justify-content-between align-items-center">
-            <span>Code</span>
-            <i class="far fa-trash-alt delete"></i>
-          </li>
-          <li class="list-group-item d-flex justify-content-between align-items-center">
-            <span>Sleep</span>
-            <i class="far fa-trash-alt delete"></i>
-          </li> -->
-        </ul>
-    
+        <div class="dragscroll">
+          <ul class="list-group todos mx-auto text-light">
+            <!-- <li class="list-group-item d-flex justify-content-between align-items-center">
+              <span>Eat</span>
+              <i class="far fa-trash-alt delete"></i>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <span>Code</span>
+              <i class="far fa-trash-alt delete"></i>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <span>Sleep</span>
+              <i class="far fa-trash-alt delete"></i>
+            </li> -->
+          </ul>
+        </div>
         <form class="add text-center my-4">
           <!-- <label class="addTodo">Add a new todo...</label> -->
           <input class="form-control m-auto" id="addTodo" type="text" name="add" placeholder="Add a New Todo"/>

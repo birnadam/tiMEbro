@@ -168,6 +168,7 @@ body {
 .todo,
 .weather {
   background: rgba(255, 255, 255, 0.707);
+  height: fit-content;
   z-index: 1;
   border-radius: 5%;
   box-shadow: 8px 8px 0 rgba(41, 6, 153, 0.707);
@@ -184,16 +185,12 @@ body {
 }
 
 .dragscroll {
-  max-height: 350px;
+  max-height: 185px;
   overflow-y: scroll;
   cursor: grab; 
   cursor : -o-grab; 
   cursor : -moz-grab; 
   cursor : -webkit-grab;
-}
-
-.weather {
-  height: fit-content;
 }
 
 .settings,
