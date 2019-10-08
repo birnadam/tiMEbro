@@ -416,9 +416,10 @@ const tick = () => {
     now.getMinutes() < 10
       ? "0" + JSON.stringify(now.getMinutes())
       : now.getMinutes();
-  const s = now.getSeconds() < 10
-  ? "0" + JSON.stringify(now.getSeconds())
-  : now.getSeconds();
+  const s =
+    now.getSeconds() < 10
+      ? "0" + JSON.stringify(now.getSeconds())
+      : now.getSeconds();
   // set AM or PM
   const AMPM = now.getHours() > 11 ? "PM" : "AM";
 
